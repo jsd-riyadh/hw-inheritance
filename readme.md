@@ -1,41 +1,18 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Prototypal Inheritance (3:00)
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Inheritance (3:00)
 
-
-| Timing | Type | Topic |
-| --- | --- | --- |
-| 10 min | [Opening](#opening) | Introduction to Prototypal Inheritance |
-| 15 min | [Introduction](#introduction) | Class vs. Prototype |
-| 60 min | [Codealong](#codealong1) | Constructor & Prototype |
-| 10 min | [Independent Practice](#practice) | What Are You Looking at? |
-| 10 min | [Lab](#lab1) | Build a Constructor That... - Independent Practice |
-| 15 min | [Codealong](#codealong2) | Subclasses  |
-| 10 min | [Codealong](#codealong3) | Object.create()  |
-| 35 min | [Lab](#lab2) | Build a Virtual Farm |
-| 10 min | [Codealong](#codealong4) | ES6 - Same Ol' Inheritance Just With Syntactic Sugar |
-| 5 min |  [Conclusion](#conclusion)| Final Questions & Exit Tickets |
-
-### Objectives
-
-_After this lesson, students will be able to:_
-
-- Explain prototypal inheritance and its purpose.
-- Distinguish the difference between prototypal from classical inheritance.
-- Create and extend prototypes.
-- Explain the difference literal and constructed objects.
 
 ### Preparation
 
 _Before this lesson, students should already be able to:_
 
 - Write JavaScript functions.
+- Write JavaScript Classes.
 - Describe the difference between functions and methods in JavaScript.
-
->Note: Last class, we learned how to store and use anonymous functions in variables and write functions that take other functions as arguments. Check with students to make sure that everyone is comfortable with the materials covered in the last class.
 
 ---
 
 <a name = "opening"></a>
-## Intro (10 min)
+## Intro 
 
 > Prototype-based programming is a style of object-oriented programming in which behavior reuse (known as inheritance) is performed via a process of cloning existing objects that serve as prototypes. This model can also be known as prototypal, prototype-oriented, classless, or instance-based programming. Delegation is the language feature that supports prototype-based programming. - wikipedia
 
@@ -44,27 +21,6 @@ As we develop more programs we run into the concept of DRY, short for _Don't Rep
 For example, say we are developing a revamped version of the video game Street Fighter. Each character may have their own unique fighting tricks, but in general, all character objects should have at least the same kick and punch abilities. With DRY in mind, when we develop a new fighter object we know we would want to avoid recreating any of these general behaviors and instead code a solution that clones them. This solution is performed with prototypal inheritance.
 
 ---
-
-<a name = "introduction"></a>
-## Class vs. Prototype (10 min)
-
-The purpose of prototypal inheritance is to offer a modeling object, which contains certain behaviors, to other objects to be prototyped off of, inheriting the model's behaviors. For those of you familiar with other object-oriented languages, such as Ruby, this functionality may sound very similar to what a class does. However, Javascript is not a class-based language, but instead a prototype-based language. Let's discuss the differences by comparing Ruby against Javascript.
-
-#### Class:
-
-In Ruby, classes are objects that have unique responsibilities and methods:
-
-- manufacture new objects
-- define the behavior of the objects they manufacture
-
-#### Prototypal Inheritance:
-
-Similar to Ruby, Javascript also uses objects, function objects (generally everything in Javascript is an object except primitives), to perform inheritance. However unlike Ruby, Javascript does not have a special function object that can both manufacture a new object as well as define the behavior of the object it creates. Instead, Javascript has two different features, constructors and prototypes, which accomplish these tasks:
-
-- a _constructor_ function manufactures new objects
-- a _prototype_ property defines the behavior of new objects manufactured by the constructor
-
-Now that we know the key differences between a prototype-based and a class-based language, let's take a deeper dive into the mechanics of a constructor and a prototype.
 
 ---
 <a name = "codealong1"></a>
@@ -75,14 +31,16 @@ What exactly is a constructor?
 A constructor is just an ordinary function no different than any function you've coded up to this point. However, what does distinguish this function from the rest is when it is used with the `new` operator.
 
 ```
-function Vehicle(color) {
-  this.color = color
+class Vehicle {
+  constructor(color){
+    this.color = color
+  }
 }
 
 var car = new Vehicle('red')
 ```
 
-***note:*** Out of convention, just as we would capitalize a class name, we capitalize the name of our constructor function.
+***note:*** Out of convention, just as we would capitalize a class name, we capitalize the name of our class.
 
 When we call upon our constructor function with the `new` operator we are creating a new object instance based off a user-defined object type, in this case `Vehicle`, or of a built-in object type, such as a String. Essentially, the constructor function is specifying the type of the object instance it creates. This has several implications.
 
@@ -113,8 +71,9 @@ arr instanceof Array // true
 or if you even tried with your own hand rolled constructor:
 
 ```javascript
-function Foo () {
-
+class Foo {
+  constructor(){
+  }
 }
 
 var f = new Foo()
@@ -161,8 +120,10 @@ car.wheels // 8
 Context is something we will cover in the next lesson, but for now here's a brief explanation. Let's go all the way back and look at our first example:
 
 ```javascript
-function Vehicle(color) {
-  this.color = color
+class Vehicle{
+  constructor(color){
+    this.color = color
+  }
 }
 
 var car = new Vehicle('red')
@@ -206,12 +167,17 @@ Now that we're starting to feel comfortable in our understanding of all these ne
 Building off of our Vehicle constructor, let's extend Vehicle to make another constructor for hybrid cars.
 
 ```javascript
-function Vehicle(color) {
-  this.color = color
+class Vehicle{
+  constructor(color) {
+    this.color = color
+  }
 }
 
-function HybridCar(color) {
-  Vehicle.call(this, color)
+class HybridCar extends Vehicle{
+  constructor(color) {
+    super(color)
+    this.color = color
+  }
 }
 
 HybridCar.prototype = new Vehicle()
