@@ -13,14 +13,24 @@
       width: 100%;
     }
     body {
-      background: url("http://www.safeeggs.com/foodservice/img/foodservice-news-upcoming-events.jpg") no-repeat;
+      background: url("https://images.pexels.com/photos/235725/pexels-photo-235725.jpeg?cs=srgb&dl=agriculture-barn-clouds-235725.jpg&fm=jpg") no-repeat;
       background-size: cover;
     }
-    .animal {
-      height: 100px;
-      width: 100px;
+    .cow {
+      height: 50px;
+      width: 50px;
       position: absolute;
       bottom: 100px;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+    }
+    .rooster{
+      height: 50px;
+      width: 50px;
+      left: 1000px;
+      position: absolute;
+      bottom: 30px;
       cursor: pointer;
       background-size: cover;
       background-position: center;
@@ -31,6 +41,12 @@
 <body>
 
   <div class="container-fluid farm"></div>
+  <div class="cow"></div>
+  <audio src="http://s1download-universal-soundbank.com/mp3/sounds/106.mp3" autoplay class="sound" ></audio>
+  
+  <div class="rooster"></div>
+  <audio src="http://www.animal-sounds.org/farm/Rooster%20animals070.wav" autoplay class="roostersound" ></audio>
+  
   <script src="bundle.js"></script>
 </body>
 </html>
