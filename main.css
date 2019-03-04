@@ -1,0 +1,10 @@
+body{
+    background-image: url("https://www.agri-pulse.com/ext/resources/images/Agriculture-photos/Farmscapes/Farm1.jpg?1509734744");
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
