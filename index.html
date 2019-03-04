@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script
+	    type = "text/javascript"
+	    src="https://code.jquery.com/jquery-3.3.1.js"
+	    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+      <!-- <script>
+        $(".cow").html('<img src="https://i.imgur.com/HkRIMj4.jpg"/>');
+        alert("helloo!")
+      </script> -->
   <title>Virtual Farm</title>
   <!-- bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <!-- jquery -->
-  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  
   <!-- styling -->
-  <style>
+   <style>
     html, body {
       height: 100%;
       width: 100%;
     }
     body {
-      background: url("http://www.safeeggs.com/foodservice/img/foodservice-news-upcoming-events.jpg") no-repeat;
+      background: url("https://i.imgur.com/dikWlmu.jpg") no-repeat;
       background-size: cover;
     }
     .animal {
@@ -25,12 +34,28 @@
       background-size: cover;
       background-position: center;
     }
-  </style>
+    .m {
+        text-align: right;
+
+    }
+  </style> 
   <!-- js -->
 </head>
 <body>
+    <div class="cow">
+      <!-- <img src="https://i.imgur.com/HkRIMj4.jpg" alt=""> -->
+    </div>
+    <div class="dog">
+    </div>
+    <div class="horse">
+    </div>
+    <div class="camel">
+    </div>
+    <div class="chiken">
+    </div>
 
   <div class="container-fluid farm"></div>
-  <script src="bundle.js"></script>
+  
 </body>
+<script src="bundle.js"></script>
 </html>
