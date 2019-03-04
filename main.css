@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+    width: 100%;
+  }
+  body {
+    background: url("https://ak3.picdn.net/shutterstock/videos/4758293/thumb/1.jpg") no-repeat;
+    background-size: cover;
+    /* background-image: red;  */
+  }
+  .animal {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    bottom: 100px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+  }
