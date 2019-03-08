@@ -1,0 +1,17 @@
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+  body {
+    background: url("https://s2.best-wallpaper.net/wallpaper/1920x1080/1109/Meteor-across-the-sky-green-grass_1920x1080.jpg") no-repeat;
+    background-size: cover;
+  }
+  .animal {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    bottom: 100px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+  }
