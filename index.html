@@ -13,24 +13,31 @@
       width: 100%;
     }
     body {
-      background: url("http://www.safeeggs.com/foodservice/img/foodservice-news-upcoming-events.jpg") no-repeat;
+      background: url("/farm.jpg") no-repeat;
       background-size: cover;
     }
     .animal {
       height: 100px;
       width: 100px;
       position: absolute;
-      bottom: 100px;
       cursor: pointer;
       background-size: cover;
-      background-position: center;
+      background-position: right;
+      
     }
   </style>
   <!-- js -->
 </head>
-<body>
-
-  <div class="container-fluid farm"></div>
+<body >
+    <button id = "chicken" onclick="clicked(this.id)" >Chicken</button>
+  <button id = "sheep" onclick="clicked(this.id)" >Sheep</button>
+  <button id = "goat" onclick="clicked(this.id)" >Goat</button>
+  <button id = "texasLonghorn" onclick="clicked(this.id)" >TexasLonghorn</button>
+  <button id = "pony" onclick="clicked(this.id)" >Pony</button>
+  <!-- <div id = "main" class ="animal">
+   <div class = "animal" id = "chicken"></div>
+  </div> -->
+  <div class="container-fluid farm " id = "animal"></div>
   <script src="bundle.js"></script>
 </body>
 </html>
